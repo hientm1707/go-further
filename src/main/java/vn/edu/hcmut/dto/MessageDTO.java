@@ -1,4 +1,4 @@
-package vn.com.momo.dto;
+package vn.edu.hcmut.dto;
 
 public class MessageDTO {
     private String message;

@@ -1,4 +1,4 @@
-package vn.com.momo.controllers;
+package vn.edu.hcmut.controllers;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import vn.com.momo.constant.QueueConstant;
-import vn.com.momo.dto.MessageDTO;
+import vn.edu.hcmut.constant.QueueConstant;
+import vn.edu.hcmut.dto.MessageDTO;
 
 @RestController
 @RequestMapping("/messages")
