@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import vn.edu.hcmut.constant.QueueConstant;
 import vn.edu.hcmut.dto.MessageDTO;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/messages")
 public class MessageController {
@@ -17,7 +19,7 @@ public class MessageController {
     private RabbitTemplate rabbitTemplate;
 
     @PostMapping("/send")
-    public void sendMessage(@RequestBody MessageDTO dto) {
-        rabbitTemplate.convertAndSend(QueueConstant.EXCHANGE_NAME, QueueConstant.ROUTING_KEY, QueueConstant.QUEUE_NAME);
+    public void sendMessage(@RequestBody @Valid MessageDTO dto) {
+        rabbitTemplate.convertAndSend(QueueConstant.EXCHANGE_NAME, QueueConstant.ROUTING_KEY, dto);
     }
 }
