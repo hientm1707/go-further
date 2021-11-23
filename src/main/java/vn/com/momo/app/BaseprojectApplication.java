@@ -1,4 +1,4 @@
-package vn.com.momo.baseproject;
+package vn.com.momo.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ public class BaseprojectApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BaseprojectApplication.class, args);
-        System.out.println("Hello World");
+        System.out.println("Application is ready");
     }
 
 }

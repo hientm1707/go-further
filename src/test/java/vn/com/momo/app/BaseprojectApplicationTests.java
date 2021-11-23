@@ -1,4 +1,4 @@
-package vn.com.momo.baseproject;
+package vn.com.momo.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
