@@ -1,5 +1,7 @@
 package vn.edu.hcmut;
 
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -9,6 +11,8 @@ import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {MongoAutoConfiguration.class})
 public class BaseprojectApplication {
+    @Autowired
+    RabbitTemplate rabbitTemplate;
     @Value("${MONGO_CLOUD_URI}")
     static String uri;
 
