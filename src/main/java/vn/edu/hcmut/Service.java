@@ -10,16 +10,16 @@ import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {MongoAutoConfiguration.class})
-public class BaseprojectApplication {
+public class Service {
     @Autowired
     RabbitTemplate rabbitTemplate;
     @Value("${MONGO_CLOUD_URI}")
     static String uri;
 
     public static void main(String[] args) {
-        SpringApplication.run(BaseprojectApplication.class, args);
-        System.out.println(System.getenv().get("MONGO_CLOUD_URI"));
-        System.out.println("Application is ready");
+        SpringApplication.run(Service.class, args);
+//        System.out.println(System.getenv().get("MONGO_CLOUD_URI"));
+        System.out.println("Service is ready");
     }
 
 }

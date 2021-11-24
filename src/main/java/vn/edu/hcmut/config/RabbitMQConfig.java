@@ -26,9 +26,15 @@ public class RabbitMQConfig {
 
 
     @Bean
-    Queue queue() {
-        return new Queue(QueueConstant.QUEUE_NAME, false);
+    Queue queue1() {
+        return new Queue(QueueConstant.QUEUE1, false);
     }
+
+    @Bean
+    Queue queue2() {
+        return new Queue(QueueConstant.QUEUE2, false);
+    }
+
 
     @Bean
     TopicExchange exchange() {
@@ -36,9 +42,16 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(QueueConstant.ROUTING_KEY);
+    Binding binding1(TopicExchange exchange) {
+        return BindingBuilder.bind(queue1()).to(exchange).with(QueueConstant.ROUTING_KEY1);
     }
+
+
+    @Bean
+    Binding binding2(TopicExchange exchange) {
+        return BindingBuilder.bind(queue2()).to(exchange).with(QueueConstant.ROUTING_KEY2);
+    }
+
 
     @Bean
     public MessageConverter jsonMessageConverter() {
