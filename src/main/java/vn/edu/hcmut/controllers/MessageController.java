@@ -20,6 +20,6 @@ public class MessageController {
 
     @PostMapping("/send")
     public void sendMessage(@RequestBody @Valid MessageDTO dto) {
-        rabbitTemplate.convertAndSend(QueueConstant.EXCHANGE_NAME, QueueConstant.ROUTING_KEY, dto);
+        rabbitTemplate.convertAndSend(QueueConstant.EXCHANGE_NAME, QueueConstant.ROUTING_KEY1, dto);
     }
 }

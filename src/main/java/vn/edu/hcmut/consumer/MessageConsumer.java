@@ -7,8 +7,8 @@ import vn.edu.hcmut.dto.MessageDTO;
 
 @Component
 public class MessageConsumer {
-    @RabbitListener(queues = QueueConstant.QUEUE_NAME)
+    @RabbitListener(queues = QueueConstant.QUEUE2)
     public void consumeMessageFromQueue(MessageDTO messageDTO) {
-        System.out.println("Received from queue :" + messageDTO.toString());
+        System.out.println("Received from service :" + messageDTO.toString());
     }
 }
