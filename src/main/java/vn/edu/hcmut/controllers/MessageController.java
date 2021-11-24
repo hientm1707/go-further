@@ -1,25 +1,33 @@
 package vn.edu.hcmut.controllers;
 
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import vn.edu.hcmut.constant.QueueConstant;
 import vn.edu.hcmut.dto.MessageDTO;
+import vn.edu.hcmut.service.GatewayService;
 
 import javax.validation.Valid;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/messages")
 public class MessageController {
 
+
     @Autowired
-    private RabbitTemplate rabbitTemplate;
+    private GatewayService gatewayService;
 
     @PostMapping("/send")
-    public void sendMessage(@RequestBody @Valid MessageDTO dto) {
-        rabbitTemplate.convertAndSend(QueueConstant.EXCHANGE_NAME, QueueConstant.ROUTING_KEY1, dto);
+
+    public String sendMessage(@RequestBody @Valid MessageDTO dto) throws ExecutionException, InterruptedException {
+        var future = gatewayService.getResponseBack(dto);
+        return future.get();
     }
+
+//    public Integer calculate(@RequestBody CalculatorDTO calculatorDTO) {
+//        var future =
+//    }
+
 }
