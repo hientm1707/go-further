@@ -8,7 +8,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class CalculatorDTO {
-    private int a;
-    private int b;
-    private String op;
+    private int o1;
+    private int o2;
 }
